@@ -1,0 +1,10 @@
+- name: Ensure user Joe is present
+  hosts: windows
+  tasks: 
+    - name: Joe created 
+      win_user:
+        name: Joe
+        password: P@ssword
+        state: present
+        groups:
+        - Users
