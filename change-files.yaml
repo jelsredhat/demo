@@ -1,6 +1,6 @@
 #Change Content
 - name: Change content 
-  hosts: 192.168.122.80
+  hosts: all
   become: yes
   become_user: root
   tasks:
