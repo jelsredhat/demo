@@ -1,0 +1,9 @@
+- name: Remove content 
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+    - name: Remove content
+      file:
+       path: /tmp/index.html
+       state: absent
