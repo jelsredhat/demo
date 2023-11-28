@@ -1,0 +1,10 @@
+#My Apache webserver
+- name: remove apache
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+    - name: ensure apache is at the latest version
+      yum:
+        name: httpd
+        state: absent
