@@ -1,4 +1,4 @@
-#Change Content
+ #Change Content
 - name: Change content 
   hosts: all
   become: yes
@@ -6,11 +6,6 @@
   tasks:
     - name: copy content
       replace:
-       path: /var/www/cgi-bin/mycmd.cgi
-       regexp: "Address"
-       replace: "IP Address"
-    - name: copy content
-      replace:
-       path: /var/www/cgi-bin/mycmd.cgi
-       regexp: "ip addr" 
-       replace: "ifconfig"
+       path: /tmp/index.html
+       regexp: "HELLO WORLD"
+       replace: "hello world"
