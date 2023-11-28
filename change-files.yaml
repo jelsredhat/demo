@@ -6,11 +6,6 @@
   tasks:
     - name: copy content
       replace:
-       path: /var/www/cgi-bin/mycmd.cgi
-       regexp: "IP Address"
-       replace: "Address"
-    - name: copy content
-      replace:
-       path: /var/www/cgi-bin/mycmd.cgi
-       regexp: "ip addr" 
-       replace: "ifconfig"
+       path: /tmp/index.html
+       regexp: "hello world"
+       replace: "HELLO WORLD"
