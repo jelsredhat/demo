@@ -1,0 +1,8 @@
+- name: Manage Files
+- hosts: all
+  tasks:
+  - name: Creating a file with content
+    copy:
+      dest: "/var/www/html/htdocs/index.html"
+      content: |
+        hello world
