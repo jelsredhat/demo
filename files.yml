@@ -1,5 +1,5 @@
 - name: Manage Files
-- hosts: all
+  hosts: all
   tasks:
   - name: Creating a file with content
     copy:
