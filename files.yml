@@ -3,6 +3,6 @@
   tasks:
   - name: Creating a file with content
     copy:
-      dest: "/var/www/html/htdocs/index.html"
+      dest: "/var/www/html/index.html"
       content: |
         hello world
