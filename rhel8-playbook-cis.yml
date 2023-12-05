@@ -490,7 +490,7 @@
       - unknown_strategy
 
     - name: Disable XDMCP in GDM
-      lineinfile:
+      ini_file:
         path: /etc/gdm/custom.conf
         section: xdmcp
         option: Enable
