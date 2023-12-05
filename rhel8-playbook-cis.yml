@@ -490,7 +490,7 @@
       - unknown_strategy
 
     - name: Disable XDMCP in GDM
-      ini_file:
+      lineinfile:
         path: /etc/gdm/custom.conf
         section: xdmcp
         option: Enable
@@ -525,7 +525,7 @@
       - unknown_strategy
 
     - name: Disable GNOME3 Automounting - automount
-      ini_file:
+      lineinfile:
         dest: /etc/dconf/db/local.d/00-security-settings
         section: org/gnome/desktop/media-handling
         option: automount
@@ -606,7 +606,7 @@
       - unknown_strategy
 
     - name: Disable GNOME3 Automounting - automount-open
-      ini_file:
+      lineinfile:
         dest: /etc/dconf/db/local.d/00-security-settings
         section: org/gnome/desktop/media-handling
         option: automount-open
@@ -968,7 +968,7 @@
       - no_reboot_needed
 
     - name: Ensure GPG check is globally activated
-      ini_file:
+      lineinfile:
         dest: /etc/yum.conf
         section: main
         option: gpgcheck
@@ -1391,7 +1391,7 @@
       - unknown_strategy
 
     - name: Enable GNOME3 Login Warning Banner
-      ini_file:
+      lineinfile:
         dest: /etc/dconf/db/gdm.d/00-security-settings
         section: org/gnome/login-screen
         option: banner-message-enable
@@ -1518,7 +1518,7 @@
       - unknown_strategy
 
     - name: Set the GNOME3 Login Warning Banner Text
-      ini_file:
+      lineinfile:
         dest: /etc/dconf/db/gdm.d/00-security-settings
         section: org/gnome/login-screen
         option: banner-message-text
