@@ -410,7 +410,7 @@
       - unknown_strategy
 
     - name: Disable the GNOME3 Login User List
-      ini_file:
+      ini_community.general.file:
         dest: /etc/dconf/db/gdm.d/00-security-settings
         section: org/gnome/login-screen
         option: disable-user-list
