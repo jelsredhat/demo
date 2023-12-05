@@ -439,7 +439,7 @@
       - unknown_strategy
 
     - name: Prevent user modification of GNOME3 disablement of Login User List
-      lineinfile:
+      ini_file:
         path: /etc/dconf/db/gdm.d/locks/00-security-settings-lock
         regexp: ^/org/gnome/login-screen/disable-user-list$
         line: /org/gnome/login-screen/disable-user-list
@@ -525,7 +525,7 @@
       - unknown_strategy
 
     - name: Disable GNOME3 Automounting - automount
-      lineinfile:
+      ini_file:
         dest: /etc/dconf/db/local.d/00-security-settings
         section: org/gnome/desktop/media-handling
         option: automount
@@ -549,7 +549,7 @@
       - unknown_strategy
 
     - name: Prevent user modification of GNOME3 Automounting - automount
-      lineinfile:
+      ini_file:
         path: /etc/dconf/db/local.d/locks/00-security-settings-lock
         regexp: ^/org/gnome/desktop/media-handling/automount$
         line: /org/gnome/desktop/media-handling/automount
@@ -606,7 +606,7 @@
       - unknown_strategy
 
     - name: Disable GNOME3 Automounting - automount-open
-      lineinfile:
+      ini_file:
         dest: /etc/dconf/db/local.d/00-security-settings
         section: org/gnome/desktop/media-handling
         option: automount-open
@@ -630,7 +630,7 @@
       - unknown_strategy
 
     - name: Prevent user modification of GNOME3 Automounting - automount-open
-      lineinfile:
+      ini_file:
         path: /etc/dconf/db/local.d/locks/00-security-settings-lock
         regexp: ^/org/gnome/desktop/media-handling/automount-open$
         line: /org/gnome/desktop/media-handling/automount-open
