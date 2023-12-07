@@ -1,7 +1,7 @@
 ---
 - name: Update system
   hosts: all
-  debugger: always
+  debugger: yes
   become: yes
   tasks:
     - name: Upgrade all packages
