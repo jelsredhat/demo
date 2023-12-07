@@ -8,7 +8,7 @@
         name: "*"
         state: latest
         update_only: yes
-        register: result
+        notify: result
     - name: Show Output
       when: result|succeeded
       debug: msg="{{ result.stdout_lines }}"
