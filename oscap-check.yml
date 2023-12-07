@@ -1,4 +1,9 @@
-- name: This command will change the working directory to somedir/
-  ansible.builtin.shell:
-    cmd: oscap xccdf eval --profile ospp --results ospp-results.xml /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
-    chdir: /root
+---
+- name: Run Oscap on servers
+  hosts: all
+  become: yes
+  tasks: 
+    - name: This command will oscap 
+      ansible.builtin.shell:
+        cmd: oscap xccdf eval --profile ospp --results ospp-results.xml /usr/share/xml/scap/ssg/content/ssg-rhel8-ds.xml
+        chdir: /root
