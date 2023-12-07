@@ -1,0 +1,10 @@
+#My Apache webserver
+- name: Keep Apache running
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+    - name: ensure apache is starting
+      service:
+        name: httpd
+        state: started
