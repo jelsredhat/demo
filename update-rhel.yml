@@ -1,0 +1,9 @@
+---
+- name: Update system
+  become: yes
+  tasks:
+    - name: Update System
+      ansible.builtin.dnf:
+        name: "*"
+        state: present
+    
