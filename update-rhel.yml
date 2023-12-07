@@ -3,9 +3,8 @@
   hosts: all
   become: yes
   strategy: debug
-  - name: Update subset of packages.
-      yum:
-      name: "{{ item }}"
-      state: latest
-    with_items:
-    - {{ installed_packages | intersect(packages_to_update) }}
+  tasks:
+    - name: Upgrade all packages
+      ansible.builtin.dnf5:
+        name: "*"
+        state: latest
