@@ -3,8 +3,9 @@
   hosts: all
   become: yes
   strategy: debug
-  tasks:
-    - name: Update System
-      ansible.builtin.dnf:
-        name: "*"
-        state: present
+  - name: Update subset of packages.
+      yum:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+    - {{ installed_packages | intersect(packages_to_update) }}
