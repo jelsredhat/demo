@@ -2,9 +2,8 @@
 - name: Update system
   hosts: all
   become: yes
-  strategy: debug
   tasks:
     - name: Upgrade all packages
-      ansible.builtin.dnf5:
+      ansible.builtin.dnf:
         name: "*"
         state: latest
