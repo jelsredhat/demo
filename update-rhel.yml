@@ -8,3 +8,4 @@
       ansible.builtin.dnf:
         name: "*"
         state: latest
+        update_only: yes
