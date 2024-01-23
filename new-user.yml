@@ -3,7 +3,7 @@
   become: yes
   become_user: root
   tasks:
-    name: Add the user 'james' with a bash shell, appending the group 'admins' and 'developers' to the user's groups
+    name: Add new user
     ansible.builtin.user:
       name: james
       shell: /bin/bash
