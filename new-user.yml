@@ -1,10 +1,6 @@
-- name: Ensure user Joe is present
-  hosts: windows
-  tasks: 
-    - name: Joe created 
-      win_user:
-        name: Joe
-        password: P@ssword
-        state: present
-        groups:
-        - Users
+- name: Add the user 'james' with a bash shell, appending the group 'admins' and 'developers' to the user's groups
+  ansible.builtin.user:
+    name: james
+    shell: /bin/bash
+    groups: admins,developers
+    append: yes
