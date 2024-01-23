@@ -3,8 +3,8 @@
   become: yes
   become_user: root
   tasks:
-    name: Add new user
-    ansible.builtin.user:
-      name: james
-      shell: /bin/bash
+    - name: Add new user
+      ansible.builtin.user:
+        name: james
+        shell: /bin/bash
       
