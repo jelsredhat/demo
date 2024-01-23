@@ -3,8 +3,8 @@
   become: yes
   become_user: root
   tasks:
-    name: Remove the user 'james'
-    ansible.builtin.user:
-      name: james
-      state: absent
-      remove: yes
+    - name: Remove the user 'james'
+      ansible.builtin.user:
+        name: james
+        state: absent
+        remove: yes
