@@ -5,6 +5,6 @@
   become_user: root
   tasks:
     - name: ensure apache is removed
-      yum:
+      ansible.builtin.dnf:
         name: httpd
         state: absent
