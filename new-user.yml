@@ -7,4 +7,5 @@
       ansible.builtin.user:
         name: james
         shell: /bin/bash
+        state: present
       
