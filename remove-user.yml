@@ -1,4 +1,4 @@
-- name: Remove content 
+- name: Remove User 
   hosts: all
   become: yes
   become_user: root
