@@ -1,6 +1,11 @@
-- name: Add the user 'james' with a bash shell, appending the group 'admins' and 'developers' to the user's groups
-  ansible.builtin.user:
-    name: james
-    shell: /bin/bash
-    groups: admins,developers
-    append: yes
+- name: Remove content 
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+    name: Add the user 'james' with a bash shell, appending the group 'admins' and 'developers' to the user's groups
+    ansible.builtin.user:
+      name: james
+      shell: /bin/bash
+      groups: admins,developers
+      append: yes
