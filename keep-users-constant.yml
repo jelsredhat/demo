@@ -3,6 +3,22 @@
   become_user: root
   vars:
     users_to_add:
+      - name: Donna
+        shell: /bin/bash
+      - name: Matt   
+        shell: /bin/bash        
+  tasks:
+    - name: Create multiple users
+      ansible.builtin.user:
+        name: "{{ item.name }}"
+        shell: "{{ item.shell }}"
+        state: absent
+      with_items: "{{ users_to_add }}"
+- hosts: all
+  become: yes
+  become_user: root
+  vars:
+    users_to_add:
       - name: James
         shell: /bin/bash
       - name: Bob
