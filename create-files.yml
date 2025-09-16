@@ -5,6 +5,6 @@
   tasks:
   - name: Creating a file with content
     copy:
-      dest: "/var/www/index.html"
+      dest: "/var/www/html/index.html"
       content: |
         hello world
