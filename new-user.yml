@@ -3,12 +3,6 @@
   become_user: root
   vars:
     users_to_add:
-      - name: James
-        shell: /bin/bash
-      - name: Bob
-        shell: /bin/bash
-      - name: Kevin
-        shell: /bin/bash 
       - name: Donna
         shell: /bin/bash
       - name: Mat
