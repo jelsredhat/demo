@@ -3,7 +3,7 @@
   become_user: root
   vars:
     users_to_add:
-      - name: James
+      - name: james
         shell: /bin/bash
       - name: Bob
         shell: /bin/bash
