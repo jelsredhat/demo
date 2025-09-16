@@ -1,4 +1,6 @@
 - hosts: all
+  become: yes
+  become_user: root
   vars:
     users_to_add:
       - name: James
