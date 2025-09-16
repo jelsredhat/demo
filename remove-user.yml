@@ -1,10 +1,20 @@
-- name: Remove User 
-  hosts: all
+- hosts: all
   become: yes
   become_user: root
+  vars:
+    users_to_add:
+      - name: James
+        shell: /bin/bash
+      - name: Bob
+        shell: /bin/bash
+      - name: Kevin
+        shell: /bin/bash 
+      - name: kevin
+        shell: /bin/bash        
   tasks:
-    - name: Remove the user 'james'
+    - name: Create multiple users
       ansible.builtin.user:
-        name: james
+        name: "{{ item.name }}"
+        shell: "{{ item.shell }}"
         state: absent
-        remove: yes
+      with_items: "{{ users_to_add }}"
