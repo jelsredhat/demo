@@ -6,6 +6,6 @@
   tasks:
     - name: copy content
       replace:
-       path: /var/www/index.html
+       path: /var/www/html/index.html
        regexp: "HELLO WORLD"
        replace: "hello world"
