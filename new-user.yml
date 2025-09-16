@@ -5,7 +5,9 @@
   tasks:
     - name: Add new user
       ansible.builtin.user:
-        name: james, bob, kevin
+        name: james
+        name: bob
+        name: kevin
         shell: /bin/bash
         state: present
       
