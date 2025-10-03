@@ -1,5 +1,5 @@
 - name: Manage Files
-  hosts: all
+  hosts: node1
   become: yes
   become_user: root  
   tasks:
