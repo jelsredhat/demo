@@ -7,5 +7,5 @@
     - name: copy content
       replace:
        path: /var/www/html/index.html
-       regexp: "HELLO WORLD"
-       replace: "hello world"
+       regexp: "This is my WEB SERVER"
+       replace: "This is my Web Server"
