@@ -53,7 +53,7 @@
   handlers:
     - name: "Reload Web Server"
       ansible.builtin.service:
-        name: apache2 # <--- CHANGE THIS IF USING NGINX (to 'nginx')
+        name: node1
         state: reloaded
       listen: "Reload Web Server" 
       ignore_errors: true
