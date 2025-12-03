@@ -3,10 +3,9 @@
   become: yes
   become_user: root  
   tasks:
-  - name: Creating a file with content
-    ansible.builtin.file:
-      path: "/var/www/html/index.html"
-      state: touch      
-      mode: '0755' 
-      owner: root 
-      group: root 
+  - name: Creating a file with content   
+    ansible.builtin.copy:
+      dest: "/var/www/html/index.html"
+      content: |
+        This is my Web Server.
+      mode: "0644"
