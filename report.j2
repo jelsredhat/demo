@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ inventory_hostname }} Server Health Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9; color: #333; }
+        .container { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #007bff; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+        h2 { color: #333; margin-top: 20px; }
+        pre { background-color: #eee; padding: 10px; border-radius: 4px; overflow-x: auto; }
+        .status-ok { color: green; font-weight: bold; }
+        .status-fail { color: red; font-weight: bold; }
+    </style>
+    <meta http-equiv="refresh" content="60">
+</head>
+<body>
+    <div class="container">
+        <h1>Server Health Report for: {{ inventory_hostname }}</h1>
+        <p><strong>Generated At:</strong> {{ ansible_date_time.iso8601 }}</p>
+        
+        <h2>✅ System Uptime</h2>
+        <pre>{{ system_uptime.stdout | trim }}</pre>
+        
+        <h2>📊 CPU Load Average (1m, 5m, 15m)</h2>
+        <pre>{{ cpu_load.stdout | trim }}</pre>
+        
+        <h2>🧠 Memory Usage (MB)</h2>
+        <pre>{{ memory_usage.stdout }}</pre>
+        
+        <h2>🗄️ Disk Space Usage (Root Partition)</h2>
+        <pre>{{ disk_usage.stdout }}</pre>
+
+        <h2>⚙️ Critical Service Status (SSHD Example)</h2>
+        <p>Status: 
+            {% if ssh_status.changed == false %}
+                <span class="status-ok">RUNNING</span> (State: {{ ssh_status.state | default('N/A') }})
+            {% else %}
+                <span class="status-fail">CRITICAL: Check Failed or Not Running</span>
+            {% endif %}
+        </p>
+        
+    </div>
+</body>
+</html>
