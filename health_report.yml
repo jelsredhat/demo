@@ -1,59 +1,59 @@
 ---
-- name: Generate Web-Visible Server Health Report
+- name: "Generate Web-Visible Server Health Report"
   hosts: all
   gather_facts: yes
-  become: yes  # Needed for running commands and writing to /var/www/html
+  become: yes
 
   tasks:
-    - name: Ensure target directory exists
+    - name: "Ensure target directory /var/www/html exists"
       ansible.builtin.file:
         path: /var/www/html
         state: directory
         mode: '0755'
 
     # --- Data Collection Tasks ---
-    - name: Get CPU Load Average
+    - name: "Get CPU Load Average"
       ansible.builtin.command: cat /proc/loadavg
       register: cpu_load
       changed_when: false
 
-    - name: Get Memory Usage (in MB)
+    - name: "Get Memory Usage (in MB)"
       ansible.builtin.command: free -m
       register: memory_usage
       changed_when: false
 
-    - name: Get Disk Space Usage
+    - name: "Get Disk Space Usage"
       ansible.builtin.command: df -h /
       register: disk_usage
       changed_when: false
 
-    - name: Get System Uptime
+    - name: "Get System Uptime"
       ansible.builtin.command: uptime -p
       register: system_uptime
       changed_when: false
 
-    - name: Check Status of Critical Service (Example: SSHD)
+    # *** THIS LINE IS NOW CORRECTED WITH QUOTES ***
+    - name: "Check Status of Critical Service (Example: SSHD)"
       ansible.builtin.service:
         name: sshd
         state: started
       register: ssh_status
-      ignore_errors: true # Continue playbook even if service check fails
+      ignore_errors: true 
 
     # --- Report Generation Task ---
-    - name: Render Jinja2 template and place as index.html
+    - name: "Render Jinja2 template and place as index.html"
       ansible.builtin.template:
         src: report.j2
         dest: /var/www/html/index.html
-        owner: root  # Or the user your web server runs as (e.g., 'www-data')
+        owner: root 
         group: root
         mode: '0644'
       notify: Reload Web Server
 
   handlers:
-    # Use a handler to reload the web server if needed (only if content changes)
-    - name: Reload Web Server
+    - name: "Reload Web Server"
       ansible.builtin.service:
-        name: apache2 # Change to your service name (e.g., 'nginx')
+        name: apache2 # <--- CHANGE THIS IF USING NGINX (to 'nginx')
         state: reloaded
-      listen: "Reload Web Server" # Listens to the notify trigger
+      listen: "Reload Web Server" 
       ignore_errors: true
