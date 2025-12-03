@@ -4,7 +4,6 @@
   become_user: root  
   tasks:
   - name: Creating a file with content
-    copy:
-      dest: "/var/www/html/index.html"
-      content: |
-        hello world
+    ansible.builtin.file:
+      path: "/var/www/html/index.html"
+      state: touch      
