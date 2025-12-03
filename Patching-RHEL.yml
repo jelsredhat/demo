@@ -1,6 +1,6 @@
 ---
 - name: Apply all system updates and reboot if necessary
-  hosts: all  # Change this to your target group in the inventory
+  hosts: servers  # Change this to your target group in the inventory
   become: yes          # Use privilege escalation (e.g., sudo)
 
   tasks:
