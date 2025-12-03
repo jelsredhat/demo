@@ -53,7 +53,7 @@
   handlers:
     - name: "Reload Web Server"
       ansible.builtin.service:
-        name: node1
+        name: httpd
         state: reloaded
       listen: "Reload Web Server" 
       ignore_errors: true
