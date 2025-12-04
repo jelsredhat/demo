@@ -1,6 +1,6 @@
 ---
 - name: "Generate Web-Visible Server Health Report"
-  hosts: servers
+  hosts: all
   gather_facts: yes
   become: yes
 
