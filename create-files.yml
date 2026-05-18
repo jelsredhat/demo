@@ -5,7 +5,7 @@
   tasks:
   - name: Creating a file with content   
     ansible.builtin.copy:
-      dest: "/var/www/html/index.html"
+      dest: "/var/tmp/index.html"
       content: |
         This is my Web Server.
       mode: "0644"
